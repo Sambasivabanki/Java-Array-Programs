@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class MatrixMultiplication {
+    public static void main(String[] args) 
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the size of row:");
+        int row1=sc.nextInt();
+        System.out.print("Enter the size of col:");
+        int col1=sc.nextInt();
+        int[][] arr1=new int[row1][col1];
+        System.out.print("Enter the size of row:");
+        int row2=sc.nextInt();
+        System.out.print("Enter the size of col:");
+        int col2=sc.nextInt();
+        int[][] arr2=new int[row2][col2];
+        if(col1==row2)
+        {
+            read(arr1);
+            read(arr2);
+            int[][] res=new int[row1][col2];
+            for(int i=0;i<row1;i++)
+            {
+                for(int j=0;j<col2;j++)
+                {
+                    for(int k=0;k<arr1[i].length;k++)
+                    {
+                        res[i][j]+=arr1[i][k]*arr2[k][j];
+                    }
+                }
+            }
+                
+            display(res);
+                
+
+        }
+
+
+    }
+    
+    static void read(int[][] samba)
+    {
+        Scanner sc=new Scanner(System.in);
+        for(int i=0;i<samba.length;i++)
+        {
+            System.out.println("Enter" +i+ "th row");
+            for(int j=0;j<samba[i].length;j++)
+            {
+                samba[i][j]=sc.nextInt();
+            }
+        }
+    }
+    static void display(int res[][])
+    {
+        System.out.println("Resultant Matrix is:");
+        for(int[] sde:res)
+        {
+            for(int ele:sde)
+            {
+                System.out.print(ele+"\t");
+            }
+            System.out.println();
+        }
+    }
+}
