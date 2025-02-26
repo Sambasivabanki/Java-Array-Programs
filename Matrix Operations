@@ -1,0 +1,91 @@
+class Main
+{
+    public static void main(String[] args)
+    {
+        int[][] arr1={{1,2,3},{1,2,3},{1,2,3}};
+        int[][] arr2={{1,2,3},{1,2,3},{1,2,3}};
+        System.out.println("Elements in Matrix 1 Are:");
+        display(arr1);
+        System.out.println("Elements in Matrix 2 Are:");
+        display(arr2);
+        System.out.println("Addition  Resultant Matrix is:");
+        add(arr1,arr2);
+        System.out.println("Subtraction Resultant Matrix is:");
+        sub(arr1,arr2);
+        System.out.println("Multiplication  Resultant Matrix is:");
+        mul(arr1,arr2);
+        
+    }
+    static void display(int[][] arr)
+    {
+        for(int[] sde:arr)
+        {
+            for(int ele:sde)
+            {
+                System.out.print(ele+" ");
+            }
+            System.out.println();
+        }
+    }
+    static void add(int[][] arr1,int[][] arr2)
+    {
+        int[][] res=new int[3][3];
+        for(int i=0;i<arr1.length;i++)
+        {
+            for(int j=0;j<arr2.length;j++)
+            {
+                res[i][j]=arr1[i][j]+arr2[i][j];
+            }
+        }
+        display(res);
+    }
+    static void sub(int[][] arr1,int[][] arr2)
+    {
+        int[][] res=new int[3][3];
+        for(int i=0;i<arr1.length;i++)
+        {
+            for(int j=0;j<arr2.length;j++)
+            {
+                res[i][j]=arr1[i][j]-arr2[i][j];
+            }
+        }
+        display(res);
+    }
+    static void mul(int[][] arr1,int[][] arr2)
+    {
+        int[][] res=new int[3][3];
+        for(int i=0;i<arr1.length;i++)
+        {
+            for(int j=0;j<arr2[i].length;j++)
+            {
+                for(int k=0;k<arr1[i].length;k++)
+                {
+                    res[i][j]+=arr1[i][k]*arr2[k][j];
+                }
+            }
+        }
+        display(res);
+    }
+}
+
+Output:
+Elements in Matrix 1 Are:
+1 2 3 
+1 2 3 
+1 2 3 
+Elements in Matrix 2 Are:
+1 2 3 
+1 2 3 
+1 2 3 
+Addition  Resultant Matrix is:
+2 4 6 
+2 4 6 
+2 4 6 
+Subtraction Resultant Matrix is:
+0 0 0 
+0 0 0 
+0 0 0 
+Multiplication  Resultant Matrix is:
+6 12 18 
+6 12 18 
+6 12 18 
